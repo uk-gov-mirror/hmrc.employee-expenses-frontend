@@ -54,8 +54,7 @@ class ChangeWhichTaxYearsViewSpec extends CheckboxViewBehaviours[TaxYearSelectio
 
       taxYearsAndAmounts.map{
         options =>
-          doc.getElementById(s"tax-year-${options._1.value}").text contains s"${options._1.message.html}"
-          doc.getElementById(s"fre-amount-${options._1.value}").text contains s"£${options._2}"
+          doc.getElementById(s"fre-amount-${options._1.value}").text mustBe s"${messages("changeWhichTaxYears.columnHeading2")} £${options._2}"
       }
     }
 
@@ -82,7 +81,7 @@ class ChangeWhichTaxYearsViewSpec extends CheckboxViewBehaviours[TaxYearSelectio
           (option, i) <- taxYearsAndAmounts.zipWithIndex
         } yield {
           val id = form("value")(s"[$i]").id
-          doc.select(s"label[for=$id]").text contains option._1.message.html.toString
+          doc.select(s"label[for=$id]").text mustBe s"${option._1.message.html.toString} ${messages("changeWhichTaxYears.columnHeading2")} £${option._2}"
         }
       }
 

@@ -73,14 +73,7 @@ class AlreadyClaimingFREDifferentAmountsViewSpec extends OptionsViewBehaviours[A
       assertContainsText(doc, messages("alreadyClaimingFREDifferentAmounts.bodyText1", fullUserAnswers.get(ClaimAmountAndAnyDeductions).get))
     }
 
-    // "contains correct headings for table" in {
-    //   val doc = asDocument(applyViewMultipleYears(form))
-
-    //   doc.getElementById("tax-year-heading").text mustBe messages("alreadyClaimingFREDifferentAmounts.tableTaxYearHeading")
-    //   doc.getElementById("amount-heading").text mustBe messages("alreadyClaimingFREDifferentAmounts.tableAmountHeading")
-    // }
-
-    "contains correct column values for table" in {
+    "contains correct values in list" in {
       val doc = asDocument(applyViewMultipleYears(form))
 
       doc.getElementById(s"tax-year-${TaiTaxYear().year}").text mustBe messages(

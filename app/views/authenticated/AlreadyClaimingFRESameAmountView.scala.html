@@ -52,7 +52,7 @@
         </p>
         <p>@messages("alreadyClaimingFRESameAmount.paragraph2", claimAmount)</p>
 
-        @**if(freAmounts.length > 1) {**@
+        @if(freAmounts.length > 1) {
             <ul role="list" class="govuk-check-your-answers section">
                 @for(freAmounts <- freAmounts) {
                     <li>
@@ -69,7 +69,7 @@
                     </li>
                 }
             </ul>
-        @**}**@
+        }
 
         @components.input_radio(
             field = form("value"),
